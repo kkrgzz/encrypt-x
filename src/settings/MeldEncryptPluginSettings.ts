@@ -9,5 +9,10 @@ export interface IMeldEncryptPluginSettings {
 
 	featureWholeNoteEncrypt : IFeatureWholeNoteEncryptSettings;
 	featureInplaceEncrypt : IFeatureInplaceEncryptSettings;
+
+	// New settings
+	vectorSize: number;
+	saltSize: number;
+	iterations: number;
 }
 

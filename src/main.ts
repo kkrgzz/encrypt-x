@@ -7,17 +7,19 @@ import FeatureInplaceEncrypt from './features/feature-inplace-encrypt/FeatureInp
 import FeatureWholeNoteEncrypt from './features/feature-whole-note-encrypt/FeatureWholeNoteEncrypt';
 import { EditViewEnum } from './features/feature-whole-note-encrypt/EncryptedFileContentView';
 import FeatureConvertNote from './features/feature-convert-note/FeatureConvertNote';
+import { CryptoHelperFactory } from './services/CryptoHelperFactory';
 
 export default class MeldEncrypt extends Plugin {
 
 	private settings: IMeldEncryptPluginSettings;
-
 	private enabledFeatures : IMeldEncryptPluginFeature[] = [];
 
 	async onload() {
 		
 		// Settings
 		await this.loadSettings();
+
+		CryptoHelperFactory.initialize(this);
 
 		this.enabledFeatures.push(
 			new FeatureWholeNoteEncrypt(),
@@ -73,7 +75,11 @@ export default class MeldEncrypt extends Plugin {
 			featureInplaceEncrypt:{
 				expandToWholeLines: false,
 				showMarkerWhenReadingDefault: true
-			}
+			},
+
+            vectorSize: 16,
+            saltSize: 16,
+            iterations: 600000
 		}
 
 		this.settings = Object.assign(
