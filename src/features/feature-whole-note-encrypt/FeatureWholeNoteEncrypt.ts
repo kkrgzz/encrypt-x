@@ -60,7 +60,7 @@ export default class FeatureWholeNoteEncrypt implements IMeldEncryptPluginFeatur
 	}
 
 	onunload() {
-		this.plugin.app.workspace.detachLeavesOfType(VIEW_TYPE_ENCRYPTED_FILE_CONTENT);
+		
 	}
 
 	private processToggleReadingViewCommand() {

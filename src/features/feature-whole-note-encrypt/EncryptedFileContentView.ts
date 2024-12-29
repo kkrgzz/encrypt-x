@@ -347,7 +347,7 @@ export class EncryptedFileContentView extends TextFileView {
 			el.autocapitalize = 'on';
 			el.translate = false;
 			el.contentEditable = 'plaintext-only';
-			el.style.tabSize = '4';
+			el.classList.add('editor-container');
 			el.innerText = this.currentEditorSourceText;
 		} );
 

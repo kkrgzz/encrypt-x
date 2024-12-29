@@ -8,6 +8,7 @@ import FeatureWholeNoteEncrypt from './features/feature-whole-note-encrypt/Featu
 import { EditViewEnum } from './features/feature-whole-note-encrypt/EncryptedFileContentView';
 import FeatureConvertNote from './features/feature-convert-note/FeatureConvertNote';
 import { CryptoHelperFactory } from './services/CryptoHelperFactory';
+import { VIEW_TYPE_ENCRYPTED_FILE_CONTENT } from './features/feature-whole-note-encrypt/EncryptedFileContentView';
 
 export default class MeldEncrypt extends Plugin {
 
@@ -42,6 +43,7 @@ export default class MeldEncrypt extends Plugin {
 			name: 'Clear Session Password Cache',
 			icon: 'file-lock',
 			callback: () => {
+				this.app.workspace.detachLeavesOfType(VIEW_TYPE_ENCRYPTED_FILE_CONTENT);
 				const itemsCleared = SessionPasswordService.clear();
 				new Notice( `Items cleared: ${itemsCleared}` );
 			},

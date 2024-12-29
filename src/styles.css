@@ -50,3 +50,11 @@
 }
 
 /* END FEATURE IN LINE */
+
+.full-width {
+    width: 100%;
+}
+
+.editor-container {
+    tab-size: 4;
+}

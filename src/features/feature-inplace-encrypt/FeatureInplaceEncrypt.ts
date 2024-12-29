@@ -64,7 +64,7 @@ export default class FeatureInplaceEncrypt implements IMeldEncryptPluginFeature{
 		
 		if ( node instanceof HTMLElement ){
 			for( const n of Array.from(node.childNodes) ){
-				var childNodes = this.replaceMarkersRecursive( n, rlevel+1 );
+				let childNodes = this.replaceMarkersRecursive( n, rlevel+1 );
 				n.replaceWith( ...childNodes );
 			}
 			return [node];
